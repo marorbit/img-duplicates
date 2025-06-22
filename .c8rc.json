@@ -1,0 +1,17 @@
+{
+  "reporter": ["html", "text", "json-summary"],
+  "reports-dir": "coverage",
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "test/**",
+    "coverage/**",
+    "dist/**",
+    "src/cli.ts"
+  ],
+  "all": true,
+  "check-coverage": true,
+  "lines": 95,
+  "functions": 100,
+  "branches": 85,
+  "statements": 95
+}
