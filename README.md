@@ -1,4 +1,4 @@
-# Image Duplicate Finder CLI and library for node.js
+# Image Duplicate Finder CLI tool and library for Node.js
 
 A CLI tool and Node.js library for detecting duplicate and visually similar images across your file system. Using perceptual hashing algorithms, it can identify images that are essentially the same even when they differ in resolution, file format, compression level, or have very minor edits.
 
