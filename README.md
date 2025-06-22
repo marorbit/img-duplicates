@@ -2,13 +2,17 @@
 
 A CLI tool and Node.js library for detecting duplicate and visually similar images across your file system. Using perceptual hashing algorithms, it can identify images that are essentially the same even when they differ in resolution, file format, compression level, or have very minor edits.
 
-## Installation
-
-```bash
-npm install img-duplicates
-```
-
 ## CLI Usage
+
+### Installation
+Requires [Node.js](https://nodejs.org/) to be installed.
+To install the CLI tool, run this command in your terminal:
+```bash
+npm install -g img-duplicates
+```
+**Note:** Depending on how you installed Node.js, the above command may required admin rights.
+
+### Usage
 
 After installation, the CLI tool is globally available:
 
@@ -55,6 +59,14 @@ img-duplicates --force-delete /path/to/images
 **Note**: When using `--delete` or `--force-delete`, the image with the highest resolution in each duplicate group will be kept, and all others will be deleted.
 
 ## Programmatic Usage
+
+### Installation
+
+```bash
+npm install img-duplicates
+```
+
+### Usage
 
 ```typescript
 import findDuplicateImages from 'img-duplicates';
