@@ -11,6 +11,10 @@
     "build": "tsup && fix-tsup-cjs",
     "cli": "node dist/cli.mjs"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marorbit/img-duplicates.git"
+  },
   "keywords": [
     "image",
     "duplicates",
