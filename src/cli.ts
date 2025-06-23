@@ -249,7 +249,7 @@ async function main(): Promise<void> {
   }
 
   if (options.version) {
-    console.log("1.0.0");
+    console.log("1.0.1");
     process.exit(0);
   }
 
