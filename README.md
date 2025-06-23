@@ -1,16 +1,45 @@
-# Image Duplicate Finder CLI tool and library for Node.js
+# Image Duplicate Finder CLI tool and JavaScript library
 
-A CLI tool and Node.js library for detecting duplicate and visually similar images across your file system. Using perceptual hashing algorithms, it can identify images that are essentially the same even when they differ in resolution, file format, compression level, or have very minor edits.
+A CLI tool and JavaScript library for detecting duplicate and visually similar images across your file system. Using perceptual hashing algorithms, it can identify images that are essentially the same even when they differ in resolution, file format, compression level, or have very minor edits.
+
+**Compatible JavaScript runtimes: Node.js, Deno and Bun**
 
 ## CLI Usage
 
 ### Installation
+
+#### Node.js
 Requires [Node.js](https://nodejs.org/) to be installed.
-To install the CLI tool, run this command in your terminal:
+
+Run directly without installation:
+```bash
+npx img-duplicates [options] <source...>
+```
+
+Or install globally:
 ```bash
 npm install -g img-duplicates
 ```
-**Note:** Depending on how you installed Node.js, the above command may required admin rights.
+**Note:** Depending on how you installed Node.js, the above command may require admin rights.
+
+#### Deno
+Requires [Deno](https://deno.land/) to be installed.
+You can run the tool directly from npm:
+```bash
+deno run --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:img-duplicates [options] <source...>
+```
+
+#### Bun
+Requires [Bun](https://bun.sh/) to be installed.
+You can run the tool directly with:
+```bash
+bunx img-duplicates [options] <source...>
+```
+
+Or install globally:
+```bash
+bun install -g img-duplicates
+```
 
 ### Usage
 
@@ -37,17 +66,19 @@ img-duplicates [options] <source...>
 ### Examples
 
 ```bash
-# Search a directory for duplicates
+# Search a directory for duplicates (Node.js)
 img-duplicates /path/to/images
+# or with npx
+npx img-duplicates /path/to/images
 
-# Search multiple directories
-img-duplicates /path/to/dir1 /path/to/dir2
+# Search multiple directories (Deno)
+deno run --allow-read --allow-write --allow-env --allow-ffi --allow-sys npm:img-duplicates /path/to/dir1 /path/to/dir2
 
-# With custom settings
-img-duplicates --hash-size 16 --max-distance 3 /path/to/images
+# With custom settings (Bun)
+bunx img-duplicates --hash-size 16 --max-distance 3 /path/to/images
 
-# Mix files and directories
-img-duplicates /path/to/image1.jpg /path/to/image2.png /path/to/directory
+# Mix files and directories (npx)
+npx img-duplicates /path/to/image1.jpg /path/to/image2.png /path/to/directory
 
 # Delete duplicates with confirmation
 img-duplicates --delete /path/to/images
@@ -62,14 +93,40 @@ img-duplicates --force-delete /path/to/images
 
 ### Installation
 
+#### Node.js
 ```bash
 npm install img-duplicates
 ```
 
+#### Deno
+No installation needed, import directly from npm:
+```typescript
+import findDuplicateImages from 'npm:img-duplicates';
+```
+
+#### Bun
+```bash
+bun add img-duplicates
+```
+
 ### Usage
 
+#### Node.js / Bun
 ```typescript
 import findDuplicateImages from 'img-duplicates';
+
+const duplicates = await findDuplicateImages('/path/to/images', {
+  hashSize: 8,
+  maxDuplicates: 100,
+  maxDistance: 5
+});
+
+console.log(duplicates);
+```
+
+#### Deno
+```typescript
+import findDuplicateImages from 'npm:img-duplicates';
 
 const duplicates = await findDuplicateImages('/path/to/images', {
   hashSize: 8,
