@@ -1,6 +1,6 @@
 {
   "name": "img-duplicates",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Find duplicate images based on visual similarity",
   "scripts": {
     "test": "cross-env NODE_ENV=test node --import=tsx --test test/*.ts",
